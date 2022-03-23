@@ -1,18 +1,23 @@
 import React,{useEffect} from "react";
 import { useForm } from "react-hook-form";     
 import { addData } from "../Redux/Action/action"; 
-import { useDispatch,useSelector} from "react-redux";     
+import { useDispatch,useSelector} from "react-redux";
+import { toast } from "react-toastify";  
+import { useNavigate} from "react-router-dom";      
 
 const Registration = () => {
     const {register,formState: { errors },handleSubmit} = useForm();
     const dispatch = useDispatch();
+    const navigate=useNavigate();
     const Record = useSelector((state) => state.reducer.List);
-    {
-      console.log("record",Record);
-    }
     const handleRegistration = (data) => {
-      console.log("data",data)
+      
+      toast.success("Successfully Registered", {
+        icon: "🚀"
+      });
       dispatch(addData(data));
+      navigate("/userlogin")
+      
    };
    useEffect(() => {
     if(Record){

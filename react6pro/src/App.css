@@ -135,4 +135,8 @@ button[name="login"] {
 button[type="submit"]:hover {
   background-color: rgb(223, 146, 150);
 }
+.ToastContainer
+{
+  position:"bottom-left";
 
+}
