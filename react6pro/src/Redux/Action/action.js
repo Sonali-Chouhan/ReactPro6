@@ -5,3 +5,10 @@ export const addData= (data) => {
       payload: data,
     };
   };
+export const loginData=(item)=>{
+  return {
+    type: "login_Data",
+    payload: item,
+  };
+
+}

@@ -4,29 +4,31 @@ import { addData } from "../Redux/Action/action";
 import { useDispatch,useSelector} from "react-redux";
 import { toast } from "react-toastify";  
 import { useNavigate} from "react-router-dom";      
-
 const Registration = () => {
     const {register,formState: { errors },handleSubmit} = useForm();
     const dispatch = useDispatch();
     const navigate=useNavigate();
-    const Record = useSelector((state) => state.reducer.List);
+    const data = useSelector((state) => state.reducer.List);
+    {
+      console.log("record",data)
+    }
     const handleRegistration = (data) => {
       
       toast.success("Successfully Registered", {
         icon: "🚀"
       });
+      console.log('ss',data)
       dispatch(addData(data));
       navigate("/userlogin")
       
+      
    };
    useEffect(() => {
-    if(Record){
-        var item=Record
+    if(data){
+        var item=data
         localStorage.setItem("record", JSON.stringify(item));
       }
-
-    },[Record])
-
+    },[data])
   return (
     <div className="Registration">
       <form onSubmit={handleSubmit(handleRegistration)}>

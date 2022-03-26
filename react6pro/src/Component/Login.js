@@ -1,30 +1,36 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form"; 
-import { useNavigate} from "react-router-dom";          
+import { set, useForm } from "react-hook-form"; 
+import { useDispatch, useSelector } from "react-redux"
+import { loginData } from "../Redux/Action/action"; 
+import { useNavigate} from "react-router-dom";            
 const Login = () => {
-       const[home,sethome]=useState(true)
+     const  [get,setget]=useState('')
+      const gettoken = useSelector((state) => state.reducer.home);
+      // const getToken = useSelector((state)=>state.reducer.logintoken) 
        const {register,formState: { errors },handleSubmit} = useForm();
-       let navigate =useNavigate();
-       const handleLogin = (data) => {
-         var item=localStorage.getItem("record")
-         var object=JSON.parse(item)
-         object.map((e)=>{
-            if(e.email===data.email && (e.password===data.password)){
-              sethome(home)
-              navigate("/")
-              
-            }
-            else{
-                 console.log("empty")
-                 sethome(!home)
-            }
-         })
+       const dispatch = useDispatch();
+       const navigate=useNavigate();
+       const handleLogin = (item) => {
+        dispatch(loginData(item));
+       
+        if(!gettoken){
+          navigate("/dashboard")
+          // setget(get)
+        }
+         else
+        {// setget(!get)
+        console.log("record not found ")
+      //  {navigate("/userlogin")}
+      }
+         
+         
       };
 return (
    
    <div className="Login">
-     {
-       home?(
+    
+    {/* {
+       get?( */}
       <form onSubmit={handleSubmit(handleLogin)}>
         <h1 >Sing In</h1>
         <div>
@@ -50,13 +56,30 @@ return (
         
         <button type="submit" name="login">Login</button>
       </form>
-      ):(
-       <h3>Check Your Email And Password</h3>
-        )
-    }
-    
+     
+     {/* ):(
+      <h3>Check Your Email And Password</h3>
+       )
+   } */}
     
     </div>
   );
 };
 export default Login
+// var item=localStorage.getItem("record")
+//          var object=JSON.parse(item)
+//          console.log("object",object)
+//          object.map((e)=>{
+//             if(e.email===data.email && (e.password===data.password)){
+//               sethome(home)
+//               navigate("/dashboard")
+             
+             
+              
+//             }
+//             else{
+             
+//                   console.log("empty")
+//                  sethome(!home)
+//             }
+//          })
