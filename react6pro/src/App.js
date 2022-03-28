@@ -14,7 +14,8 @@ import Table  from "./Component/Table";
 import Page from "./Component/Page"
 import "./App.css";
 function App() {
-  const gettoken = useSelector((state) => state.reducer.Logintoken);
+  //const gettoken = useSelector((state) => state.reducer.Logintoken);
+  const gettoken=localStorage.getItem("Token")
   
  
   return (

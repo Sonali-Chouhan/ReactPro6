@@ -1,6 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate} from "react-router-dom";    
 
 const Deshboard = () => {
+    const navigate=useNavigate();
+    const handlelogout=()=>{
+        localStorage.removeItem("Token")
+        navigate("/userlogin")}
   return (
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
@@ -80,10 +85,11 @@ const Deshboard = () => {
                             </a>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                            <a className="sidebar-link waves-effect waves-dark sidebar-link" 
+                            // href="map-google.html"
                                 aria-expanded="false">
                                 <i className="fa fa-globe" aria-hidden="true"></i>
-                                <span className="hide-menu">Google Map</span>
+                                <span className="hide-menu" onclick={handlelogout}>logout</span>
                             </a>
                         </li>
                         <li className="sidebar-item">

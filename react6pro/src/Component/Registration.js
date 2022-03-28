@@ -9,15 +9,13 @@ const Registration = () => {
     const dispatch = useDispatch();
     const navigate=useNavigate();
     const data = useSelector((state) => state.reducer.List);
-    {
-      console.log("record",data)
-    }
+  
     const handleRegistration = (data) => {
       
       toast.success("Successfully Registered", {
         icon: "🚀"
       });
-      console.log('ss',data)
+     
       dispatch(addData(data));
       navigate("/userlogin")
       

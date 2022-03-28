@@ -21,7 +21,6 @@
 //       It will be replaced with the URL of the `public` folder during the build.
 //       Only files inside the `public` folder can be referenced from the HTML.
 
-import Deshboard from "./Component/Deshboard";
 
 //       Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
 //       work correctly both with client-side routing and a non-root public URL.
@@ -96,7 +95,7 @@ import Deshboard from "./Component/Deshboard";
 //   </div>,
 
 //   document.getElementById("root")
-// );
+//
 
 
 
