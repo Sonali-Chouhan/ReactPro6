@@ -1,16 +1,20 @@
 const initialState = {
   List: [],
+  
 };
 export const reducer = function (state = initialState, action) {
   switch (action.type) {
     case "Add_Data":
+      var node=state.List
+      node.push(action.payload)
+      localStorage.setItem("record", JSON.stringify(node));
       return {
         ...state,
-        List: [...state.List, action.payload],
+        List:node,
       };
     case "login_Data":
       var message;
-      
+      var error
       var data = action.payload;
       var item = localStorage.getItem("record");
       var object = JSON.parse(item);
@@ -20,14 +24,15 @@ export const reducer = function (state = initialState, action) {
             message = "login";
             localStorage.setItem("Token",message)
            } else {
-             console.log("empty")
-            //  error=" plzz check your email and password";
+             console.error("empty")
+             error ="errors"
            }
       });
       return {
         ...state,
         data: [...object],
         Logintoken: message,
+        error:error
         
           
       };

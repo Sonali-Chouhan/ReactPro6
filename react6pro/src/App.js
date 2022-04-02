@@ -5,17 +5,16 @@ import "react-toastify/dist/ReactToastify.css";
 import Home from "./Component/Home";
 import Registration from "./Component/Registration";
 import Login from "./Component/Login";
-import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Deshboard from "./Component/Deshboard";
 import  Profile  from "./Component/Profile";
-import Loginpage from "./Component/Loginpage";
+import Loginpage from "./Component/AddContext";
 import Table  from "./Component/Table";
-import Page from "./Component/Page"
+import Page from "./Component/Page";
+import Logout from "./Component/Logout";
 import "./App.css";
 function App() {
-  //const gettoken = useSelector((state) => state.reducer.Logintoken);
-  const gettoken=localStorage.getItem("Token")
+const gettoken=localStorage.getItem("Token")
   
  
   return (
@@ -38,10 +37,12 @@ function App() {
          
            <Routes>
                 <Route path="/dashboard" element={<Deshboard />} />
-                <Route path="/profile.html" element={<Profile />} />
-                <Route path="/blank.html" element={<Loginpage />} />
-                <Route path="/basic-table.html" element={<Table />} />
-                <Route path="/fontawesome.html" element={<Page />} />
+                <Route path="/logout" element={<Logout />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/:id" element={<Profile />} />
+                <Route path="/blank" element={<Loginpage />} />
+                <Route path="/basic-table" element={<Table />} />
+                <Route path="/fontawesome" element={<Page />} />
                 </Routes>
           </>
          :

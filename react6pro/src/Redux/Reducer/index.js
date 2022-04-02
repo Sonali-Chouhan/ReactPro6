@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 import {reducer} from "./reducer"
+import {Profilereducer} from "./Profilereducer"
  const rootReducer = combineReducers({
- reducer
+ reducer,
+ Profilereducer
 
 
 })

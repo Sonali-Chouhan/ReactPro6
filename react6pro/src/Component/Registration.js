@@ -9,7 +9,6 @@ const Registration = () => {
     const dispatch = useDispatch();
     const navigate=useNavigate();
     const data = useSelector((state) => state.reducer.List);
-  
     const handleRegistration = (data) => {
       
       toast.success("Successfully Registered", {
@@ -21,12 +20,12 @@ const Registration = () => {
       
       
    };
-   useEffect(() => {
-    if(data){
-        var item=data
-        localStorage.setItem("record", JSON.stringify(item));
-      }
-    },[data])
+  //  useEffect(() => {
+  //   if(data){
+  //       var item=data
+  //       localStorage.setItem("record", JSON.stringify(item));
+  //     }
+  //   },[data])
   return (
     <div className="Registration">
       <form onSubmit={handleSubmit(handleRegistration)}>

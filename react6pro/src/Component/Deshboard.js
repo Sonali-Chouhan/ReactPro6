@@ -1,11 +1,10 @@
 import React from 'react';
-import { useNavigate} from "react-router-dom";    
+
+import Sidebar from './Sidebar';
 
 const Deshboard = () => {
-    const navigate=useNavigate();
-    const handlelogout=()=>{
-        localStorage.removeItem("Token")
-        navigate("/userlogin")}
+   
+    
   return (
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
@@ -47,76 +46,7 @@ const Deshboard = () => {
             </nav>
         </header>
         {/* end header here */}
-        <aside className="left-sidebar" data-sidebarbg="skin6">
-         
-            <div className="scroll-sidebar">
-               
-                <nav className="sidebar-nav">
-                    <ul id="sidebarnav">
-                      
-                        <li className="sidebar-item pt-2">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" 
-                                href="dashboard"
-                                aria-expanded="false">
-                                <i className="far fa-clock" aria-hidden="true"></i>
-                                <span className="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" 
-                               href="profile.html"
-                                aria-expanded="false">
-                                <i className="fa fa-user" aria-hidden="true"></i>
-                                <span className="hide-menu">Profile</span>
-                            </a>
-                        </li>
-                        <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
-                                aria-expanded="false">
-                                <i className="fa fa-table" aria-hidden="true"></i>
-                                <span className="hide-menu">Basic Table</span>
-                            </a>
-                        </li>
-                        <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
-                                aria-expanded="false">
-                                <i className="fa fa-font" aria-hidden="true"></i>
-                                <span className="hide-menu">Page</span>
-                            </a>
-                        </li>
-                        <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" 
-                            // href="map-google.html"
-                                aria-expanded="false">
-                                <i className="fa fa-globe" aria-hidden="true"></i>
-                                <span className="hide-menu" onclick={handlelogout}>logout</span>
-                            </a>
-                        </li>
-                        <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" href="blank.html"
-                                aria-expanded="false">
-                                <i className="fa fa-columns" aria-hidden="true"></i>
-                                <span className="hide-menu">Login Page</span>
-                            </a>
-                        </li>
-                        <li className="sidebar-item">
-                            <a className="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
-                                aria-expanded="false">
-                                <i className="fa fa-info-circle" aria-hidden="true"></i>
-                                <span className="hide-menu">Error 404</span>
-                            </a>
-                        </li>
-                        <li className="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
-                             className="btn d-grid btn-danger text-white" target="_blank">
-                                Upgrade to Pro</a>
-                        </li>
-                    </ul>
-
-                </nav>
-             </div>
-            
-        </aside>
+         <Sidebar/>
         {/* gggg */}
          <div className="page-wrapper">
             <div className="page-breadcrumb bg-white">
@@ -127,7 +57,7 @@ const Deshboard = () => {
                     <div className="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div className="d-md-flex">
                             <ol className="breadcrumb ms-auto">
-                                <li><a href="#" className="fw-normal">Dashboard</a></li>
+                                <li><a href="/dashboard" className="fw-normal">Dashboard</a></li>
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                              className="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
