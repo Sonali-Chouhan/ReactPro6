@@ -143,3 +143,6 @@ button[type="submit"]:hover {
 .heading{
   color: red;
 }
+.errors{
+  color: red;
+}

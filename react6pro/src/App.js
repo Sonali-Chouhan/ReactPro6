@@ -12,6 +12,7 @@ import Loginpage from "./Component/AddContext";
 import Table  from "./Component/Table";
 import Page from "./Component/Page";
 import Logout from "./Component/Logout";
+import NotFound from "./Component/NotFound";
 import "./App.css";
 function App() {
 const gettoken=localStorage.getItem("Token")
@@ -51,6 +52,7 @@ const gettoken=localStorage.getItem("Token")
         <Route path="/" element={<Home />} />
         <Route path="/userlogin" element={<Login />} />
         <Route path="/user-registration" element={<Registration />} />
+        <Route path="*" exact={true} element={<NotFound/>} />
         </Routes>
       </>
         }
